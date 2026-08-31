@@ -1,0 +1,439 @@
+/* ORLANDO — estilos (tokens em tokens.css) */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--surface-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: var(--wrap-max); margin: 0 auto; padding: 0 var(--space-3); position: relative; z-index: 1; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--surface-dark); color: var(--bg);
+  padding: var(--space-2) var(--space-3); z-index: 200; border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { left: 0; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* Montserrat forte como base de todo título; Instrument Serif Italic só na
+   palavra marcada com *asterisco* em content.js (ver richText() em main.js). */
+.title-lg {
+  font-family: var(--font-body);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.serif-i {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h2.title-lg { font-size: clamp(1.9rem, 4.2vw, 3rem); margin-bottom: var(--space-4); }
+h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.1rem; margin: 0 0 var(--space-1); }
+p { margin: 0 0 var(--space-2); }
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-muted); max-width: 46ch; }
+
+.eyebrow {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 var(--space-2);
+}
+
+/* reveal-on-scroll (desativado se prefers-reduced-motion) */
+[data-reveal] { opacity: 1; }
+@media not (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity var(--motion-slow) var(--ease), transform var(--motion-slow) var(--ease); }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(242, 240, 234, 0.94);
+  border-bottom: 1px solid rgba(7, 26, 31, 0.08);
+}
+.header-row { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.brand-mark { display: flex; align-items: center; line-height: 0; }
+.brand-mark-word { width: 168px; height: auto; }
+
+.site-nav { display: flex; align-items: center; gap: var(--space-4); }
+.site-nav a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--surface-dark); padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+.site-nav a:hover, .site-nav a:focus-visible { border-bottom-color: var(--accent); }
+.nav-cta { background: var(--surface-dark); color: var(--bg) !important; padding: 0.6rem 1.1rem !important; border-radius: var(--radius); border-bottom: none !important; }
+.nav-cta:hover, .nav-cta:focus-visible { background: var(--accent); color: var(--surface-dark) !important; }
+
+.nav-toggle { display: none; background: none; border: 1px solid var(--surface-dark); border-radius: 8px; width: 42px; height: 38px; position: relative; cursor: pointer; }
+.nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after { content: ""; position: absolute; left: 10px; right: 10px; height: 2px; background: var(--surface-dark); }
+.nav-toggle-bar { top: 18px; }
+.nav-toggle-bar::before { top: -7px; }
+.nav-toggle-bar::after { top: 7px; }
+
+/* Home com hero fotográfico: nav flutua transparente sobre a imagem e fica
+   petróleo translúcido ao rolar. Escopado a body.has-photo-hero — não afeta
+   privacidade.html / termos.html, que mantêm o header opaco padrão. */
+.has-photo-hero .site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: transparent; border-bottom: none;
+  transition: background var(--motion-fast) var(--ease), backdrop-filter var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease);
+}
+.has-photo-hero .site-header.is-scrolled {
+  background: rgba(7,26,31,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(242,240,234,0.1);
+}
+.has-photo-hero .site-nav a { color: var(--bg); }
+.has-photo-hero .nav-toggle { border-color: rgba(242,240,234,0.6); }
+.has-photo-hero .nav-toggle-bar, .has-photo-hero .nav-toggle-bar::before, .has-photo-hero .nav-toggle-bar::after { background: var(--bg); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5em; text-decoration: none; font-weight: 600; font-size: 0.98rem;
+  padding: 0.95rem 1.6rem; border-radius: var(--radius); border: 2px solid var(--surface-dark);
+  transition: background var(--motion-fast) var(--ease), color var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease);
+}
+.btn-primary { background: var(--surface-dark); color: var(--bg); }
+.btn-primary:hover, .btn-primary:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--surface-dark); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--bg); border-color: rgba(242,240,234,0.5); }
+.btn-ghost:hover, .btn-ghost:focus-visible { border-color: var(--accent); color: var(--accent); }
+.btn-accent { background: var(--accent); border-color: var(--accent); color: var(--surface-dark); }
+.btn-accent:hover, .btn-accent:focus-visible { background: var(--bg); border-color: var(--bg); transform: translateY(-1px); }
+
+/* Sections generic */
+.section { padding: var(--space-7) 0; position: relative; }
+.section-surface { background: var(--surface); color: var(--bg); }
+.section-surface .lead, .section-surface p { color: rgba(242,240,234,0.75); }
+
+/* 2. Hero — fotografia exclusiva em tela cheia (Magnific, "ORLANDO — Site MVP
+   2026"), nav transparente sobrepondo a imagem (ver .has-photo-hero abaixo) */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 100svh;
+  display: flex; align-items: flex-end;
+  background-image:
+    linear-gradient(180deg, rgba(7,26,31,0.2) 0%, rgba(7,26,31,0.55) 55%, rgba(7,26,31,0.92) 100%),
+    url("assets/hero-a-estrategia-construcao.jpg");
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  color: var(--bg);
+  padding: 0 0 var(--space-7);
+}
+
+.hero-grid { display: block; width: 100%; }
+.hero-copy { max-width: 620px; padding-top: 104px; }
+@media (min-width: 700px) { .hero-copy { padding-top: 120px; } }
+.hero-chip {
+  font-size: 0.72rem; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(242,240,234,0.08); border: 1px solid rgba(242,240,234,0.18); color: var(--bg);
+  padding: 7px 14px; border-radius: 999px; margin-bottom: var(--space-4);
+}
+.hero-chip i { color: var(--accent); }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); margin-bottom: var(--space-4); color: var(--bg); }
+.hero-lead { font-size: clamp(1.02rem, 1.7vw, 1.18rem); color: rgba(242,240,234,0.8); max-width: 44ch; margin-bottom: var(--space-5); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.hero .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--surface-dark); }
+.hero .btn-primary:hover, .hero .btn-primary:focus-visible { background: var(--bg); border-color: var(--bg); }
+
+/* 3. Faixa de clientes — altura óptica uniforme, sem caixas pesadas.
+   Logos recortados ao bounding box real do conteúdo (corrige espaço vazio
+   interno desigual entre PNGs) */
+.trust-strip { padding: var(--space-5) 0; background: var(--bg); border-bottom: 1px solid rgba(7,26,31,0.08); }
+.trust-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-4); text-align: center; }
+.trust-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-5) var(--space-6); }
+.trust-logos img { height: auto; width: auto; max-height: 32px; max-width: 150px; object-fit: contain; }
+
+/* 4. Manifesto — grid editorial, título e corpo no mesmo eixo */
+.manifesto { padding: var(--space-8) 0; overflow: hidden; }
+.manifesto-watermark { position: absolute; top: 50%; left: -10%; width: 46%; max-width: 480px; transform: translateY(-50%); opacity: 0.045; pointer-events: none; }
+.manifesto-watermark img { width: 100%; height: auto; }
+.manifesto-grid { display: grid; gap: var(--space-5); }
+.manifesto-title { font-size: clamp(1.9rem, 4vw, 3rem); }
+.manifesto-body { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--text-muted); max-width: 52ch; margin: 0 0 var(--space-4); }
+.manifesto-points { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); border-top: 1px solid rgba(7,26,31,0.15); max-width: 52ch; }
+.manifesto-points li { padding: var(--space-2) 0; border-bottom: 1px solid rgba(7,26,31,0.15); font-size: 1rem; }
+.manifesto-points li::before { content: "—"; margin-right: 10px; color: var(--accent); font-weight: 700; }
+
+/* 5. Como ajudamos — quatro frentes de peso igual (instrução explícita: nunca assimétrico aqui) */
+.frentes-intro { margin-bottom: var(--space-5); }
+.frentes-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+.frente {
+  background: rgba(242,240,234,0.05); border: 1px solid rgba(242,240,234,0.14); border-radius: var(--radius-lg);
+  padding: var(--space-4); display: flex; flex-direction: column; transition: border-color var(--motion-fast) var(--ease), background var(--motion-fast) var(--ease);
+}
+.frente:hover { background: rgba(242,240,234,0.08); border-color: rgba(2,206,195,0.3); }
+.frente-icon { display: inline-flex; font-size: 1.7rem; color: var(--accent); margin-bottom: var(--space-2); }
+.frente h3 { color: var(--bg); font-size: 1.05rem; min-height: 2.6em; }
+.frente p { color: rgba(242,240,234,0.72); margin: 0; }
+
+/* 6. "O que entregamos" — três movimentos editoriais (campanha fotográfica
+   exclusiva ORLANDO) */
+.structure { overflow: hidden; }
+.structure-intro { margin-bottom: var(--space-5); }
+
+.movements { display: flex; flex-direction: column; gap: var(--space-7); }
+.movement { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: center; }
+.movement-image img { width: 100%; height: 320px; object-fit: cover; border-radius: var(--radius-lg); }
+.movement-num { font-family: var(--font-display); font-style: italic; font-size: 2.4rem; color: var(--accent); line-height: 1; margin: 0 0 4px; }
+.movement-text h3 { font-size: 1.4rem; margin-bottom: var(--space-2); }
+.movement-text p:last-child { color: var(--text-muted); max-width: 48ch; margin-bottom: 0; }
+
+/* Deprecado — cartões de dashboard demonstrativo, substituídos pelos "três
+   movimentos" acima. CSS mantido sem uso ativo (nenhum elemento tem estas
+   classes mais) para não arriscar quebrar outra referência não identificada. */
+.dl-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+.dl-card {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #fff;
+  border: 1px solid rgba(7,26,31,0.08); box-shadow: 0 14px 28px -20px rgba(7,26,31,0.3);
+  padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2);
+}
+.dl-card-dark { background: var(--surface); }
+.dl-tag { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.dl-card-dark .dl-tag { color: rgba(242,240,234,0.6); }
+.dl-status { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); opacity: 0.8; }
+.dl-card-dark .dl-status { color: rgba(242,240,234,0.5); }
+.dl-scaled { flex: 1; display: flex; align-items: center; justify-content: center; }
+.dl-frame { width: 100%; }
+
+/* Diagnóstico */
+.dl-diagnostic .dl-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.dl-diagnostic .dl-head img { height: 14px; }
+.dl-eyebrow { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.dl-title { font-size: 0.95rem; font-weight: 800; line-height: 1.25; margin: 0 0 12px; color: var(--surface-dark); }
+.dl-title-light { color: var(--bg); font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
+.dl-sub { font-size: 0.68rem; color: rgba(242,240,234,0.55); font-weight: 700; margin-bottom: 16px; }
+.dl-sub-light { font-size: 0.68rem; color: var(--text-muted); font-weight: 700; margin-bottom: 12px; }
+.dl-quad { position: relative; aspect-ratio: 5 / 4; border: 1.5px dashed rgba(7,26,31,0.18); border-radius: 10px; }
+.dl-axis-v { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(7,26,31,0.15); }
+.dl-axis-h { position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(7,26,31,0.15); }
+.dl-lbl { position: absolute; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
+.dl-lbl.top { top: 6px; left: 50%; transform: translateX(-50%); }
+.dl-lbl.bottom { bottom: 6px; left: 50%; transform: translateX(-50%); }
+.dl-lbl.left { left: 6px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: left top; }
+.dl-lbl.right { right: 6px; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: right top; }
+.dl-node {
+  position: absolute; max-width: 42%; font-size: 0.6rem; font-weight: 700; line-height: 1.35;
+  background: var(--bg); border: 1px solid rgba(7,26,31,0.12); border-radius: 8px; padding: 6px 7px; color: var(--surface-dark);
+}
+.dl-foot { margin-top: 10px; font-size: 0.6rem; color: var(--text-muted); font-weight: 700; }
+
+/* Estratégia de marca / design system */
+.dl-ds-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.dl-ds-col { flex: 1 1 140px; min-width: 130px; }
+.dl-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.dl-swatches { display: flex; gap: 6px; flex-wrap: wrap; }
+.dl-swatches span { width: 26px; height: 26px; border-radius: 6px; display: inline-block; }
+.dl-type { display: flex; gap: 12px; align-items: baseline; margin-top: 8px; }
+.dl-type .Aa1 { font-size: 1.8rem; font-weight: 800; color: var(--surface-dark); }
+.dl-type .Aa2 { font-size: 1.8rem; color: var(--surface-dark); }
+.dl-principles { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.dl-principles li { font-size: 0.7rem; font-weight: 700; display: flex; gap: 6px; align-items: flex-start; color: var(--surface-dark); }
+.dl-principles i { color: var(--accent); margin-top: 1px; flex: none; }
+
+/* Governança */
+.dl-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 0; margin-top: 14px; }
+.dl-step-wrap { display: flex; align-items: center; gap: 4px; }
+.dl-step { flex: 1 1 auto; min-width: 64px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.dl-step .dl-ic {
+  width: 32px; height: 32px; border-radius: 50%; background: rgba(242,240,234,0.08);
+  border: 1px solid rgba(2,206,195,0.4); display: flex; align-items: center; justify-content: center;
+}
+.dl-step .dl-ic i { color: var(--accent); font-size: 14px; }
+.dl-step b { font-size: 0.62rem; font-weight: 800; color: var(--bg); }
+.dl-step span { font-size: 0.55rem; color: rgba(242,240,234,0.55); font-weight: 700; }
+.dl-arrow { color: rgba(242,240,234,0.3); font-size: 13px; flex: none; }
+
+/* Planejamento — calendário */
+.dl-cal-grid { display: grid; gap: 3px; overflow-x: auto; }
+.dl-rowlbl { font-size: 0.55rem; font-weight: 800; color: var(--text-muted); display: flex; align-items: center; padding-right: 4px; }
+.dl-cell { border-radius: 4px; background: rgba(7,26,31,0.05); min-height: 20px; }
+.dl-cell.on { background: var(--text-muted); opacity: 0.85; }
+.dl-cell.on.accent { background: var(--accent); opacity: 1; }
+
+/* Sistema de conteúdo — carrossel */
+.dl-slides { display: flex; gap: 10px; flex-wrap: wrap; }
+.dl-slide {
+  flex: 1 1 120px; min-width: 110px; aspect-ratio: 1; border-radius: 12px; padding: 12px;
+  display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 12px 24px -14px rgba(7,26,31,0.35);
+}
+.dl-slide-cover { background: linear-gradient(160deg, var(--surface-dark), var(--surface)); color: #fff; }
+.dl-slide-mid { background: #fff; border: 1px solid rgba(7,26,31,0.1); color: var(--surface-dark); }
+.dl-slide-end { background: var(--surface); color: #fff; }
+.dl-slide .num { font-size: 0.6rem; font-weight: 800; opacity: 0.55; }
+.dl-slide .txt { font-size: 0.72rem; font-weight: 800; line-height: 1.3; }
+.dl-slide .foot { font-size: 0.55rem; font-weight: 700; opacity: 0.55; }
+
+/* Infraestrutura digital */
+.dl-infra { display: flex; flex-direction: column; gap: 12px; }
+.dl-browser { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid rgba(7,26,31,0.1); }
+.dl-browser .bar { height: 20px; background: var(--bg); display: flex; align-items: center; gap: 4px; padding: 0 8px; border-bottom: 1px solid rgba(7,26,31,0.08); }
+.dl-browser .bar span { width: 5px; height: 5px; border-radius: 50%; background: rgba(7,26,31,0.2); display: inline-block; }
+.dl-browser .body { padding: 12px; }
+.dl-browser .hline { height: 7px; border-radius: 3px; background: var(--surface-dark); width: 60%; margin-bottom: 7px; }
+.dl-browser .pline { height: 4px; border-radius: 2px; background: rgba(7,26,31,0.12); margin-bottom: 5px; }
+.dl-panel { background: var(--surface); border-radius: 10px; padding: 12px; color: #fff; }
+.dl-panel .t { font-size: 0.62rem; font-weight: 800; margin-bottom: 8px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+.dl-bar { height: 5px; border-radius: 3px; background: rgba(242,240,234,0.15); margin-bottom: 5px; position: relative; overflow: hidden; }
+.dl-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 3px; }
+
+/* 7. Trabalhos autorais e liderança — seção editorial do fundador, separada
+   com espaço claro do portfólio abaixo */
+/* .trabalhos > .wrap é o único filho direto da section — o gap precisa ir
+   aqui, não em .trabalhos (que só teria um item flex e nenhum espaçamento
+   real entre founder-grid e portfolio-block). */
+.trabalhos .wrap { display: flex; flex-direction: column; gap: var(--space-8); }
+.founder-grid { display: grid; gap: var(--space-5); align-items: center; }
+.founder-photo { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 18%; border-radius: var(--radius-lg); }
+.founder-bio { max-width: 56ch; }
+.founder-signature { display: flex; flex-direction: column; gap: 3px; margin-top: var(--space-3); }
+.founder-signature strong { font-size: 1.05rem; font-weight: 700; color: var(--bg); font-style: normal; }
+.founder-signature span { font-size: 0.88rem; color: var(--accent); font-weight: 600; }
+
+.portfolio-intro { margin-bottom: var(--space-5); }
+.portfolio-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+.portfolio-item { margin: 0; border-radius: var(--radius-lg); overflow: hidden; background: rgba(242,240,234,0.05); border: 1px solid rgba(242,240,234,0.14); }
+.portfolio-item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.portfolio-item figcaption { padding: var(--space-2) var(--space-3); }
+.portfolio-item figcaption b { display: block; color: var(--bg); font-size: 0.98rem; }
+.portfolio-item figcaption span { display: block; color: rgba(242,240,234,0.65); font-size: 0.85rem; }
+.portfolio-link { display: inline-block; margin-top: var(--space-4); color: var(--accent); font-weight: 600; text-decoration: none; }
+.portfolio-link:hover, .portfolio-link:focus-visible { text-decoration: underline; }
+
+/* 8. Como começamos */
+.method-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; position: relative; }
+.method-steps li {
+  display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(7,26,31,0.12);
+}
+.method-icon { display: inline-flex; font-size: 1.5rem; color: var(--accent); flex: none; }
+.method-index { font-family: var(--font-display); font-size: 1.6rem; color: var(--text-muted); min-width: 2ch; flex: none; }
+.method-label { font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight: 500; }
+
+/* 8b. Transição/fechamento — lobo ORLANDO (imagem exclusiva) */
+.lobo-section {
+  position: relative; min-height: 60vh; display: flex; align-items: center;
+  background-image:
+    linear-gradient(100deg, rgba(7,26,31,0.92) 15%, rgba(7,26,31,0.55) 55%, rgba(7,26,31,0.15) 100%),
+    url("assets/hero-b-lobo-orlando.jpg");
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  color: var(--bg);
+  padding: var(--space-8) 0;
+}
+.lobo-inner { width: 100%; }
+.lobo-text { max-width: 620px; }
+.lobo-text .title-lg { color: var(--bg); font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+
+/* 9. CTA final — única ocorrência da frase-síntese; glow aqua controlado */
+.closing {
+  position: relative; overflow: hidden; background: var(--surface-dark); color: var(--bg);
+  padding: var(--space-8) 0; text-align: center;
+}
+.closing-watermark {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(45% 60% at 50% 15%, rgba(2,206,195,0.16), transparent 65%);
+}
+.closing-inner h2 { color: var(--bg); max-width: 18ch; margin: 0 auto var(--space-3); }
+.closing-inner > p { color: rgba(242,240,234,0.72); max-width: 52ch; margin: 0 auto var(--space-5); }
+.closing-ctas { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+.closing-email { font-size: 0.92rem; color: rgba(242,240,234,0.6); margin: 0; }
+.closing-email a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.closing-email a:hover, .closing-email a:focus-visible { text-decoration: underline; }
+
+/* Footer */
+.site-footer { position: relative; overflow: hidden; padding-top: var(--space-6); background: var(--surface-dark); border-top: 1px solid rgba(242,240,234,0.15); }
+.footer-watermark { position: absolute; bottom: -12%; right: -8%; width: 40%; max-width: 420px; opacity: 0.05; pointer-events: none; }
+.footer-watermark img { width: 100%; height: auto; }
+.footer-grid { display: grid; gap: var(--space-5); padding-bottom: var(--space-5); }
+.footer-brand { display: flex; flex-direction: column; gap: var(--space-2); }
+.footer-mark-img { width: 140px; height: auto; }
+.footer-brand p { color: rgba(242,240,234,0.55); font-size: 0.88rem; margin: 0; max-width: 32ch; }
+.footer-nav { display: flex; flex-direction: column; gap: var(--space-2); }
+.footer-nav a { color: rgba(242,240,234,0.75); text-decoration: none; font-size: 0.92rem; }
+.footer-nav a:hover, .footer-nav a:focus-visible { color: var(--accent); }
+.footer-contact { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
+.footer-contact a { text-decoration: none; color: var(--bg); font-weight: 500; font-size: 0.92rem; }
+.footer-contact a:hover, .footer-contact a:focus-visible { color: var(--accent); }
+.footer-social { display: flex; gap: var(--space-2); margin-top: var(--space-1); }
+.footer-social a {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+  border-radius: 50%; border: 1px solid rgba(242,240,234,0.25); color: var(--bg); font-size: 0.95rem; text-decoration: none;
+}
+.footer-social a:hover, .footer-social a:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--surface-dark); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-2);
+  padding: var(--space-3) 0; border-top: 1px solid rgba(242,240,234,0.1); font-size: 0.78rem; color: rgba(242,240,234,0.5);
+}
+.footer-legal { display: flex; gap: var(--space-3); }
+.footer-legal a { color: rgba(242,240,234,0.5); text-decoration: none; }
+.footer-legal a:hover, .footer-legal a:focus-visible { color: var(--accent); }
+
+/* Tablet */
+@media (min-width: 700px) {
+  .manifesto-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .frentes-grid { grid-template-columns: repeat(2, 1fr); }
+  .dl-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .frentes-grid { grid-template-columns: repeat(4, 1fr); }
+  .frente h3 { min-height: 2.8em; }
+
+  .founder-grid { grid-template-columns: minmax(320px, 40%) 1fr; gap: var(--space-6); }
+  .portfolio-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .movement { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .movement.rev .movement-image { order: 2; }
+
+  .method-steps { grid-auto-flow: column; grid-template-columns: repeat(3, 1fr); }
+  .method-steps li { flex-direction: column; align-items: flex-start; border-bottom: none; border-top: 3px solid var(--accent); padding-top: var(--space-3); }
+}
+
+/* Mobile nav collapse + logo sizing */
+@media (max-width: 860px) {
+  .brand-mark-word { width: 132px; }
+  .trust-logos img { height: 27px; }
+
+  .nav-toggle { display: block; }
+  .site-nav {
+    position: absolute; top: 100%; left: 0; right: 0; background: var(--bg);
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: var(--space-2) var(--space-3) var(--space-3);
+    border-bottom: 1px solid rgba(7,26,31,0.08);
+    transform: translateY(-8px); opacity: 0; pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .site-nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .site-nav a { padding: 0.85rem 0; border-bottom: 1px solid rgba(7,26,31,0.08); }
+  .nav-cta { margin-top: var(--space-2); text-align: center; border-bottom: none !important; }
+
+  /* Painel do menu mobile é sempre claro (var(--bg)) mesmo na home — texto
+     volta a ser escuro aqui, sobrepondo a regra branca do nav transparente. */
+  .has-photo-hero .site-nav a { color: var(--surface-dark); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
