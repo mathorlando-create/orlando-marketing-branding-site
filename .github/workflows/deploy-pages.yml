@@ -27,10 +27,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Montar pasta publicada (sem legado, docs e arquivos de repositório)
+        run: |
+          mkdir -p _site
+          rsync -a --exclude '.git*' --exclude '_site' --exclude 'legacy' --exclude '*.md' --exclude '*.bundle' --exclude '*.zip' --exclude 'scripts' --exclude 'claude' ./ _site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

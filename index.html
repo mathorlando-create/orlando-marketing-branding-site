@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,8 +16,70 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://orlandomarketingbranding.com.br/">
+<meta property="og:url" content="https://orlandomarketingbranding.com.br/">
+<meta property="og:site_name" content="ORLANDO Marketing &amp; Branding">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://orlandomarketingbranding.com.br/assets/img/og-orlando.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="assets/hero-a-estrategia-construcao.jpg">
+<link rel="stylesheet" href="assets/css/home-enhancements.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://orlandomarketingbranding.com.br/#organizacao",
+      "name": "ORLANDO Marketing & Branding",
+      "url": "https://orlandomarketingbranding.com.br/",
+      "logo": "https://orlandomarketingbranding.com.br/assets/simbolo-circular-teal.png",
+      "image": "https://orlandomarketingbranding.com.br/assets/img/og-orlando.jpg",
+      "description": "Investigamos o que trava, organizamos prioridades e projetamos marca, conteúdo, governança e infraestrutura para empresas que cresceram antes de se estruturar.",
+      "email": "contato@orlandomarketingbranding.com.br",
+      "telephone": "+55 51 98476-3778",
+      "founder": {
+        "@type": "Person",
+        "name": "Matheus Orlando",
+        "jobTitle": "Fundador e estrategista de marca"
+      },
+      "sameAs": [
+        "https://www.instagram.com/orlandomarketingbranding/",
+        "https://www.linkedin.com/company/orlandomarketingbranding/",
+        "https://www.youtube.com/@OrlandoMarketingBranding",
+        "https://www.behance.net/MatheusOrlando"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Soluções",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@id": "https://orlandomarketingbranding.com.br/solucoes/branding-b2b/#servico",
+              "@type": "Service",
+              "name": "Estratégia de marca e identidade visual para empresas B2B",
+              "url": "https://orlandomarketingbranding.com.br/solucoes/branding-b2b/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://orlandomarketingbranding.com.br/#site",
+      "url": "https://orlandomarketingbranding.com.br/",
+      "name": "ORLANDO Marketing & Branding",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://orlandomarketingbranding.com.br/#organizacao"
+      }
+    }
+  ]
+}</script>
 </head>
-<body class="has-photo-hero">
+<body class="has-photo-hero" data-page="home" data-solution="institucional">
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <header class="site-header">
@@ -25,11 +87,11 @@
     <a class="brand-mark" href="#top" aria-label="ORLANDO">
       <img src="assets/logos-detalhe/logo-branco.svg" alt="ORLANDO Marketing &amp; Branding" class="brand-mark-word">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
       <span class="nav-toggle-bar"></span>
       <span class="sr-only">Abrir menu</span>
     </button>
-    <nav class="site-nav" id="siteNav" aria-label="Navegação principal"></nav>
+    <nav class="site-nav" id="siteNav" data-loc="menu" aria-label="Navegação principal"><a href="#frentes">Como ajudamos</a><div class="nav-group"><button class="nav-sub-toggle" type="button" aria-expanded="false" aria-controls="subSolucoes">Soluções <span aria-hidden="true">⌄</span></button><ul class="subnav" id="subSolucoes"><li><a href="#entregaveis">Como organizamos o trabalho</a></li><li><a href="solucoes/branding-b2b/" data-lp="branding-b2b" data-loc="menu">Branding e identidade visual B2B</a></li></ul></div><a href="#trabalhos">Trabalhos</a><a href="#comeco">Como começamos</a><a href="#contato">Contato</a><a class="nav-cta" href="https://wa.me/5551984763778?text=Ol%C3%A1%21%20Vim%20do%20site%20da%20ORLANDO%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa." target="_blank" rel="noopener">Conversar</a></nav>
   </div>
 </header>
 
@@ -39,11 +101,11 @@
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div class="hero-copy" data-reveal>
-        <span class="hero-chip" id="heroChip"><i class="ph-light ph-compass" aria-hidden="true"></i> <span id="heroChipText"></span></span>
-        <p class="eyebrow" id="heroEyebrow"></p>
-        <h1 id="heroTitle" class="title-lg"></h1>
-        <p class="hero-lead" id="heroLead"></p>
-        <div class="hero-ctas" id="heroCtas"></div>
+        <span class="hero-chip" id="heroChip"><i class="ph-light ph-compass" aria-hidden="true"></i> <span id="heroChipText">Diagnóstico primeiro</span></span>
+        <p class="eyebrow" id="heroEyebrow">ORLANDO — estratégia, marca e governança</p>
+        <h1 id="heroTitle" class="title-lg">Transformamos marketing em <span class="serif-i">estrutura</span> para decisões melhores.</h1>
+        <p class="hero-lead" id="heroLead">Investigamos o que trava, organizamos prioridades e projetamos marca, conteúdo, governança e infraestrutura para empresas que cresceram antes de se estruturar.</p>
+        <div class="hero-ctas" id="heroCtas" data-loc="hero"><a class="btn btn-primary" href="https://wa.me/5551984763778?text=Ol%C3%A1%21%20Vim%20do%20site%20da%20ORLANDO%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa." target="_blank" rel="noopener">Conversar no WhatsApp<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a><a class="btn btn-ghost" href="#frentes">Ver como ajudamos</a></div>
       </div>
     </div>
   </section>
@@ -51,8 +113,8 @@
   <!-- 3. Faixa de clientes -->
   <section class="trust-strip" id="quem-confia" data-reveal>
     <div class="wrap">
-      <p class="trust-title" id="trustTitle"></p>
-      <div class="trust-logos" id="trustLogos"></div>
+      <p class="trust-title" id="trustTitle">Quem confia no nosso trabalho</p>
+      <div class="trust-logos" id="trustLogos"><img src="assets/clientes/logo-russell-bedford.png" alt="Russell Bedford Brasil" width="185" height="47" loading="lazy"><img src="assets/clientes/logo-camara-brasil-paraguai.png" alt="Câmara de Comércio Brasil-Paraguai" width="170" height="52" loading="lazy"><img src="assets/clientes/logo-instituto-ppps.png" alt="Instituto Brasileiro de PPPs Municipais" width="191" height="49" loading="lazy"><img src="assets/clientes/logo-fbm-rs.png" alt="Fundação Brasileira de Marketing/RS" width="171" height="71" loading="lazy"><img src="assets/clientes/logo-advogados-maciel.png" alt="Advogados Maciel" width="178" height="59" loading="lazy"><img src="assets/clientes/logo-atalaia.png" alt="Atalaia Soluções Integradas" width="197" height="57" loading="lazy"><img src="assets/clientes/logo-ga-corte-conformacao.png" alt="GA Corte e Conformação de Metais" width="193" height="50" loading="lazy"></div>
     </div>
   </section>
 
@@ -63,12 +125,12 @@
     </div>
     <div class="wrap manifesto-grid">
       <div class="manifesto-head">
-        <p class="eyebrow" id="manifestoEyebrow"></p>
-        <h2 class="title-lg" id="manifestoTitle"></h2>
+        <p class="eyebrow" id="manifestoEyebrow">O problema que identificamos</p>
+        <h2 class="title-lg" id="manifestoTitle">Clareza não é estética.</h2>
       </div>
       <div class="manifesto-body-col">
-        <p class="manifesto-body" id="manifestoBody"></p>
-        <ul class="manifesto-points" id="manifestoPoints"></ul>
+        <p class="manifesto-body" id="manifestoBody">Empresas que crescem sem se estruturar acumulam ruído: marca, liderança e operação defendendo promessas diferentes, e marketing reagindo a pedidos sem prioridade clara.</p>
+        <ul class="manifesto-points" id="manifestoPoints"><li>Aprovações dependem de opinião e memória, não de critério.</li><li>A narrativa não acompanhou o tamanho que a empresa já tem.</li></ul>
       </div>
     </div>
   </section>
@@ -76,18 +138,18 @@
   <!-- 5. Como ajudamos — quatro frentes de peso igual -->
   <section class="section section-surface frentes" id="frentes" data-reveal>
     <div class="wrap">
-      <h2 class="title-lg" id="frentesTitle"></h2>
-      <p class="lead frentes-intro" id="frentesIntro"></p>
-      <div class="frentes-grid" id="frentesList"></div>
+      <h2 class="title-lg" id="frentesTitle">Como ajudamos</h2>
+      <p class="lead frentes-intro" id="frentesIntro">Quatro frentes, um sistema.</p>
+      <div class="frentes-grid" id="frentesList"><article class="frente"><span class="frente-icon"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i></span><h3>Diagnóstico</h3><p>Perguntas, sinais e causas que a comunicação isolada não resolve.</p></article><article class="frente"><span class="frente-icon"><i class="ph-light ph-compass" aria-hidden="true"></i></span><h3>Estratégia de marca e posicionamento</h3><p>Percepção de valor, diferenciação e escolha de mercado.</p><a class="solution-link" href="solucoes/branding-b2b/" data-lp="branding-b2b" data-loc="offer_card">Conhecer a solução <span aria-hidden="true">→</span></a></article><article class="frente"><span class="frente-icon"><i class="ph-light ph-git-branch" aria-hidden="true"></i></span><h3>Governança de marketing</h3><p>Papéis, decisões e alinhamento entre liderança, marketing, comercial e operação.</p></article><article class="frente"><span class="frente-icon"><i class="ph-light ph-path" aria-hidden="true"></i></span><h3>Método e implementação</h3><p>Investigamos, organizamos e acompanhamos a mudança com evidência.</p></article></div>
     </div>
   </section>
 
   <!-- 6. O que entregamos — três movimentos editoriais -->
   <section class="section structure" id="entregaveis" data-reveal>
     <div class="wrap">
-      <h2 class="title-lg" id="deliverablesTitle"></h2>
-      <p class="lead structure-intro" id="deliverablesIntro"></p>
-      <div class="movements" id="deliverablesGrid"></div>
+      <h2 class="title-lg" id="deliverablesTitle">Como <span class="serif-i">organizamos</span> o trabalho</h2>
+      <p class="lead structure-intro" id="deliverablesIntro">Três movimentos que sustentam qualquer projeto: entender o cenário, definir a direção e criar o sistema que mantém tudo funcionando.</p>
+      <div class="movements" id="deliverablesGrid"><div class="movement"><div class="movement-image"><img src="assets/movimento-01-diagnostico.jpg" alt="Entendemos o cenário antes de propor qualquer mudança." loading="lazy"></div><div class="movement-text"><p class="movement-num">01</p><p class="eyebrow">Diagnóstico</p><h3>Entendemos o cenário antes de propor qualquer mudança.</h3><p>Olhamos para o que já existe: histórico, concorrência, canais ativos e pontos que travam o crescimento. Reunimos isso em um retrato claro do momento da empresa, sem achismo.</p></div></div><div class="movement rev"><div class="movement-image"><img src="assets/movimento-02-direcao.jpg" alt="Definimos a direção com prioridades, não com uma lista de desejos." loading="lazy"></div><div class="movement-text"><p class="movement-num">02</p><p class="eyebrow">Estratégia</p><h3>Definimos a direção com prioridades, não com uma lista de desejos.</h3><p>Marca, posicionamento e prioridades saem de decisões registradas — o que fazer primeiro, o que esperar depois e o que fica de fora por enquanto.</p></div></div><div class="movement"><div class="movement-image"><img src="assets/movimento-03-sistema.jpg" alt="Criamos o sistema que sustenta conteúdo, canais e acompanhamento." loading="lazy"></div><div class="movement-text"><p class="movement-num">03</p><p class="eyebrow">Execução</p><h3>Criamos o sistema que sustenta conteúdo, canais e acompanhamento.</h3><p>Conteúdo, canais e operação passam a seguir um fluxo com dono, prazo e método de acompanhamento — não apenas uma entrega pontual.</p></div></div></div>
     </div>
   </section>
 
@@ -97,20 +159,20 @@
       <div class="founder-grid">
         <img class="founder-photo" src="assets/matheus-orlando-founder.jpg" alt="Matheus Orlando, fundador da ORLANDO" width="900" height="1350" loading="lazy">
         <div class="founder-copy">
-          <p class="eyebrow" id="founderEyebrow"></p>
-          <h2 class="title-lg" id="founderTitle"></h2>
-          <p class="founder-bio" id="founderBio"></p>
+          <p class="eyebrow" id="founderEyebrow">Por trás da ORLANDO</p>
+          <h2 class="title-lg" id="founderTitle">Estratégia com repertório de quem também coloca a mão na massa.</h2>
+          <p class="founder-bio" id="founderBio">A ORLANDO é conduzida por Matheus Orlando. Sua experiência em identidade, posicionamento e comunicação deu origem a uma forma de trabalhar que une olhar criativo, diagnóstico e organização. Hoje, esse repertório sustenta nosso trabalho para transformar marketing disperso em prioridades claras, decisões consistentes e execução coordenada.</p>
           <p class="founder-signature">
-            <strong id="founderName"></strong>
-            <span id="founderRole"></span>
+            <strong id="founderName">Matheus Orlando</strong>
+            <span id="founderRole">Fundador, diretor de arte e estrategista de marca</span>
           </p>
         </div>
       </div>
       <div class="portfolio-block">
-        <h2 class="title-lg" id="portfolioTitle"></h2>
-        <p class="lead portfolio-intro" id="portfolioIntro"></p>
-        <div class="portfolio-grid" id="portfolioGrid"></div>
-        <a class="portfolio-link" id="portfolioLink" target="_blank" rel="noopener"></a>
+        <h2 class="title-lg" id="portfolioTitle">Trabalhos <span class="serif-i">autorais</span></h2>
+        <p class="lead portfolio-intro" id="portfolioIntro">Antes da atuação consultiva da ORLANDO, Matheus desenvolveu projetos de identidade e direção de arte para diferentes negócios. Esta seleção demonstra repertório visual e capacidade de construção de marca; não representa cases nem resultados da consultoria atual.</p>
+        <div class="portfolio-grid" id="portfolioGrid"><figure class="portfolio-item"><img src="assets/portfolio-contsil.png" alt="Contsil — Identidade visual — contabilidade digital" loading="lazy"><figcaption><b>Contsil</b><span>Identidade visual — contabilidade digital</span></figcaption></figure><figure class="portfolio-item"><img src="assets/portfolio-lf-marmitas.png" alt="LF Marmitas — Brandbook — alimentação" loading="lazy"><figcaption><b>LF Marmitas</b><span>Brandbook — alimentação</span></figcaption></figure><figure class="portfolio-item"><img src="assets/portfolio-2sb-rental.png" alt="2SB Rental — Identidade visual — locação de máquinas" loading="lazy"><figcaption><b>2SB Rental</b><span>Identidade visual — locação de máquinas</span></figcaption></figure><figure class="portfolio-item"><img src="assets/portfolio-crispim-frare.png" alt="Crispim &amp; Frare Advocacia — Identidade visual — advocacia" loading="lazy"><figcaption><b>Crispim &amp; Frare Advocacia</b><span>Identidade visual — advocacia</span></figcaption></figure></div>
+        <a class="portfolio-link" id="portfolioLink" target="_blank" rel="noopener" href="https://www.behance.net/MatheusOrlando">Ver mais no Behance</a>
       </div>
     </div>
   </section>
@@ -118,8 +180,8 @@
   <!-- 8. Como começamos -->
   <section class="section method" id="comeco" data-reveal>
     <div class="wrap">
-      <h2 class="title-lg" id="methodTitle"></h2>
-      <ol class="method-steps" id="methodSteps"></ol>
+      <h2 class="title-lg" id="methodTitle">Como começamos</h2>
+      <ol class="method-steps" id="methodSteps"><li><span class="method-icon"><i class="ph-light ph-chat-circle-text" aria-hidden="true"></i></span><span class="method-index">01</span><span class="method-label">Conversa de contexto</span></li><li><span class="method-icon"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i></span><span class="method-index">02</span><span class="method-label">Diagnóstico das tensões e prioridades</span></li><li><span class="method-icon"><i class="ph-light ph-flag" aria-hidden="true"></i></span><span class="method-index">03</span><span class="method-label">Direção de trabalho com critérios claros</span></li></ol>
     </div>
   </section>
 
@@ -127,8 +189,8 @@
   <section class="lobo-section" id="direcao" data-reveal>
     <div class="wrap lobo-inner">
       <div class="lobo-text">
-        <p class="eyebrow" id="loboEyebrow"></p>
-        <h2 class="title-lg" id="loboTitle"></h2>
+        <p class="eyebrow" id="loboEyebrow">Direção</p>
+        <h2 class="title-lg" id="loboTitle">Marcas com direção clara enxergam o caminho antes de decidir.</h2>
       </div>
     </div>
   </section>
@@ -137,11 +199,11 @@
   <section class="closing" id="contato" data-reveal>
     <div class="closing-watermark" aria-hidden="true"></div>
     <div class="wrap closing-inner">
-      <h2 class="title-lg" id="closingTitle"></h2>
-      <p id="closingLead"></p>
+      <h2 class="title-lg" id="closingTitle">Clareza também é <span class="serif-i">infraestrutura</span>.</h2>
+      <p id="closingLead">Comece com uma conversa de 20 minutos sobre onde sua marca, marketing e negócio estão desalinhados.</p>
       <div class="closing-ctas">
-        <div id="closingCta"></div>
-        <p class="closing-email" id="closingEmailRow"></p>
+        <div id="closingCta" data-loc="contato"><a class="btn btn-accent" href="https://wa.me/5551984763778?text=Ol%C3%A1%21%20Vim%20do%20site%20da%20ORLANDO%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa." target="_blank" rel="noopener">Falar no WhatsApp<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a></div>
+        <p class="closing-email" id="closingEmailRow">Ou escreva para <a href="mailto:contato@orlandomarketingbranding.com.br">contato@orlandomarketingbranding.com.br</a></p>
       </div>
     </div>
   </section>
@@ -155,23 +217,22 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <img src="assets/logos-detalhe/logo-branco.svg" alt="ORLANDO Marketing &amp; Branding" class="footer-mark-img">
-      <p id="footerTagline"></p>
+      <p id="footerTagline">Estratégia, marca e governança de marketing.</p>
     </div>
-    <nav class="footer-nav" id="footerNav" aria-label="Navegação do rodapé"></nav>
+    <nav class="footer-nav" id="footerNav" aria-label="Navegação do rodapé"><a href="solucoes/branding-b2b/" data-lp="branding-b2b" data-loc="footer">Soluções: Branding B2B</a><a href="#frentes">Como ajudamos</a><a href="#entregaveis">O que entregamos</a><a href="#trabalhos">Trabalhos</a><a href="#contato">Contato</a></nav>
     <div class="footer-contact">
-      <a id="footerEmail"></a>
-      <a id="footerWhatsapp" target="_blank" rel="noopener"></a>
-      <div class="footer-social" id="footerSocial" aria-label="Redes sociais da ORLANDO"></div>
+      <a id="footerEmail" href="mailto:contato@orlandomarketingbranding.com.br">contato@orlandomarketingbranding.com.br</a>
+      <a id="footerWhatsapp" data-loc="footer" target="_blank" rel="noopener" href="https://wa.me/5551984763778?text=Ol%C3%A1%21%20Vim%20do%20site%20da%20ORLANDO%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa.">51 98476-3778</a>
+      <div class="footer-social" id="footerSocial" aria-label="Redes sociais da ORLANDO"><a href="https://www.instagram.com/orlandomarketingbranding/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a><a href="https://www.linkedin.com/company/orlandomarketingbranding/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph-light ph-linkedin-logo" aria-hidden="true"></i></a><a href="https://www.tiktok.com/@orlandomarketingbranding" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph-light ph-tiktok-logo" aria-hidden="true"></i></a><a href="https://www.facebook.com/orlandomarketingbranding" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a href="https://www.youtube.com/@OrlandoMarketingBranding" target="_blank" rel="noopener" aria-label="YouTube"><i class="ph-light ph-youtube-logo" aria-hidden="true"></i></a></div>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© <span id="footerYear"></span> ORLANDO</span>
-    <nav class="footer-legal" id="footerLegal" aria-label="Links legais"></nav>
+    <span>© <span id="footerYear">2026</span> ORLANDO</span>
+    <nav class="footer-legal" id="footerLegal" aria-label="Links legais"><a href="privacidade.html">Política de Privacidade</a><a href="termos.html">Termos de Uso</a><a href="#" class="js-consent-open" hidden>Preferências de medição</a></nav>
   </div>
 </footer>
 
-<script src="cms-client.js"></script>
-<script src="content.js"></script>
-<script src="main.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
