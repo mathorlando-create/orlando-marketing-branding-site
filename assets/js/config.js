@@ -8,7 +8,7 @@
      real, então o WhatsApp é o canal principal. Para reativar, ver README.md → "Formulário". */
 window.ORLANDO_CONFIG = {
   ga4MeasurementId: "G-V61XWGTJTS", /* propriedade "ORLANDO Marketing & Branding — Site" (conta Orlando Design), fluxo "Site ORLANDO (web)" */
-  whatsapp: "5551984763778",
+  whatsapp: "5551992322194",
   email: "contato@orlandomarketingbranding.com.br",
   formEndpoint: "https://api.web3forms.com/submit",
   formExtraFields: { access_key: "" },
