@@ -127,6 +127,31 @@ summary::after{content:"+";position:absolute;right:6px;top:14px;font-size:24px;c
 details[open] summary::after{content:"–"}
 details p{color:var(--txt2);margin:0 0 18px;font-size:16px}
 /* rodapé */
+.plans{display:grid;gap:18px;margin-top:28px}
+@media(min-width:900px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.plan{position:relative;display:flex;flex-direction:column;background:#12404A;border:1px solid rgba(207,224,227,.2);border-radius:18px;padding:26px 22px}
+.plan--hl{border:2px solid var(--aqua)}
+.plan .tag{position:absolute;top:-13px;left:22px;background:var(--aqua);color:var(--ink);font-size:13px;font-weight:600;padding:3px 12px;border-radius:999px}
+.plan h3{margin:0 0 6px;font-size:22px;color:var(--off)}
+.plan .plan-for{font-size:15px;margin:0 0 6px}
+.plan .price strong{font-size:36px}
+.plan ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.plan li{position:relative;padding:8px 0 8px 26px;color:var(--off);font-size:15.5px;border-bottom:1px solid rgba(207,224,227,.12)}
+.plan li:last-child{border-bottom:none}
+.plan li::before{content:"";position:absolute;left:2px;top:15px;width:10px;height:10px;border-radius:3px;background:var(--aqua)}
+.plan .btn{width:100%}
+.btn--line2{background:transparent;color:var(--off);border:2px solid var(--aqua)}
+.plan .fine,.plans-fine{font-size:14px;color:var(--soft);margin:14px 0 0}
+.cmp-wrap{margin-top:34px;overflow-x:auto;border-radius:14px;border:1px solid rgba(207,224,227,.2)}
+.cmp-wrap:focus-visible{outline:3px solid var(--aqua)}
+.cmp{width:100%;min-width:560px;border-collapse:collapse;font-size:15px;color:var(--off)}
+.cmp caption{text-align:left;padding:14px 16px;font-weight:600;color:var(--off);background:#12404A}
+.cmp th,.cmp td{padding:12px 14px;border-top:1px solid rgba(207,224,227,.14);text-align:center;vertical-align:middle}
+.cmp th[scope=row]{text-align:left;font-weight:400;color:var(--soft)}
+.cmp thead th{font-weight:600;background:#12404A}
+.cmp thead th small{font-weight:400;color:var(--soft)}
+.cmp .y{color:var(--aqua);font-weight:700;font-size:18px}
+.cmp .n{color:#6F8C93}
 footer{background:var(--ink);color:var(--soft);padding:40px 0 48px;font-size:14px}
 footer b{color:var(--off);font-weight:600}
 footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin:16px 0}
@@ -190,7 +215,7 @@ footer .disc{color:#93AEB3;font-size:13px;max-width:72ch}
 <body data-page="produto" data-solution="renda-extra-na-pratica">
 
 <header class="top">
-  <div class="wrap"><b>Renda Extra na Prática</b><a href="#oferta">Ver o que está incluído</a></div>
+  <div class="wrap"><b>Renda Extra na Prática</b><a href="#oferta">Ver opções e preços</a></div>
 </header>
 
 <main id="conteudo">
@@ -353,26 +378,48 @@ footer .disc{color:#93AEB3;font-size:13px;max-width:72ch}
   </div>
 </section>
 
-<!-- H. Oferta -->
+<!-- H. Oferta: três caminhos -->
 <section class="dark" id="oferta" aria-labelledby="of">
-  <div class="wrap offer">
-    <span class="kicker">Acesso ao material</span>
-    <h2 id="of">Renda Extra na Prática — 32 ideias</h2>
-    <div class="offer-box">
-      <ul>
-        <li>E-book Renda Extra na Prática (PDF)</li>
-        <li>Caderno prático (PDF para imprimir e PDF com campos preenchíveis)</li>
-        <li>Calculadora (planilha .xlsx)</li>
-        <li>Modelos editáveis das ferramentas e mensagens (.docx)</li>
-        <li>4 vídeos curtos de orientação na área de membros</li>
-      </ul>
-      <div class="price"><strong>R$ 32,00</strong><span>produto digital · acesso por 1 ano · formas de pagamento exibidas no checkout</span></div>
-      <a class="btn" href="https://pay.kiwify.com.br/jd6mEem" data-lp="checkout-kiwify" data-loc="oferta" rel="noopener">Quero acessar o material
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <p class="fine">Pagamento processado pela Kiwify. Nada é enviado pelo correio. Este material tem finalidade educativa e não garante renda, clientes ou vendas.</p>
-      <p class="fine"><b>Opcional no checkout:</b> o treinamento em vídeo Renda Extra na Prática (37 aulas, com transcrição) por mais R$ 62,00. Avulso, ele custa R$ 94,00. O kit funciona sem o treinamento.</p>
-      <p class="fine"><b>Sessão individual:</b> quem compra o treinamento pode contratar a Sessão de Direcionamento (60 min, on-line) com o valor do treinamento descontado — R$ 296,00 em vez de R$ 390,00 —, durante o período de acesso. O agendamento acontece depois das aulas de aplicação.</p>
+  <div class="wrap">
+    <span class="kicker">Escolha o seu caminho</span>
+    <h2 id="of">Comece pelo kit ou leve o treinamento junto</h2>
+    <span class="bar"></span>
+    <p class="lead">Os três caminhos usam o mesmo material. A diferença é quanto apoio você quer para aplicar. Acesso por 1 ano a partir da compra.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Kit</h3>
+        <p class="plan-for">Para ler, comparar as ideias e começar sozinho.</p>
+        <div class="price"><strong>R$ 32,00</strong></div>
+        <ul><li>E-book, Caderno prático, Calculadora e modelos editáveis</li><li>4 vídeos curtos de orientação</li></ul>
+        <a class="btn" href="https://pay.kiwify.com.br/jd6mEem" data-lp="checkout-kiwify" data-loc="plano-kit" rel="noopener">Quero o kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">No checkout, dá para acrescentar o treinamento por mais R$ 62,00.</p>
+      </div>
+      <div class="plan plan--hl">
+        <span class="tag">Kit + treinamento</span>
+        <h3>Treinamento</h3>
+        <p class="plan-for">Para aprender com exemplos, ideia por ideia, e aplicar com uma sequência.</p>
+        <div class="price"><strong>R$ 94,00</strong></div>
+        <ul><li>Tudo do kit</li><li>37 aulas em vídeo: uma para escolher a primeira ideia, uma para cada uma das 32 ideias e 4 de aplicação</li><li>Transcrição e pontos principais em cada aula</li></ul>
+        <a class="btn" href="https://pay.kiwify.com.br/biy5sB3" data-lp="checkout-kiwify" data-loc="plano-treinamento" rel="noopener">Quero o treinamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">No checkout, dá para acrescentar a sessão individual por R$ 296,00.</p>
+      </div>
+      <div class="plan">
+        <h3>Treinamento + sessão</h3>
+        <p class="plan-for">Para quem quer, depois das aulas, uma conversa individual sobre a própria oferta.</p>
+        <div class="price"><strong>R$ 390,00</strong><span>R$ 94 do treinamento + R$ 296 da sessão</span></div>
+        <ul><li>Tudo do treinamento</li><li>Sessão de Direcionamento on-line de 60 min com Matheus Orlando</li><li>Resumo de uma página com três prioridades</li></ul>
+        <a class="btn btn--line2" href="https://pay.kiwify.com.br/biy5sB3" data-lp="checkout-kiwify" data-loc="plano-sessao" rel="noopener">Quero treinamento + sessão <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="fine">Marque a sessão no checkout do treinamento. O agendamento acontece depois das aulas de aplicação e com a Oferta e a Calculadora preenchidas.</p>
+      </div>
     </div>
+    <div class="cmp-wrap" role="region" aria-labelledby="cmp-t" tabindex="0">
+      <table class="cmp">
+        <caption id="cmp-t">O que vem em cada caminho</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Kit<br><small>R$ 32</small></th><th scope="col">Treinamento<br><small>R$ 94</small></th><th scope="col">Treinamento + sessão<br><small>R$ 390</small></th></tr></thead>
+        <tbody><tr><th scope="row">E-book com 32 ideias e 8 casos com fonte (PDF)</th><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">Caderno prático com 12 ferramentas (PDF)</th><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">Calculadora (planilha .xlsx)</th><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">Modelos editáveis (.docx)</th><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">4 vídeos curtos de orientação</th><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">37 aulas em vídeo, com transcrição e pontos principais</th><td><span class="n" aria-label="Não incluído">—</span></td><td><span class="y" aria-label="Incluído">✓</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr><tr><th scope="row">Sessão individual on-line de 60 min + resumo de uma página</th><td><span class="n" aria-label="Não incluído">—</span></td><td><span class="n" aria-label="Não incluído">—</span></td><td><span class="y" aria-label="Incluído">✓</span></td></tr></tbody>
+      </table>
+    </div>
+    <p class="fine plans-fine">Pagamento processado pela Kiwify. Nada é enviado pelo correio. Quem comprar o kit pode passar para o treinamento pagando só a diferença durante o ano de acesso. Conteúdo educativo: não garante renda, clientes ou vendas. A sessão é orientação e não inclui execução nem orientação técnica, jurídica ou contábil.</p>
   </div>
 </section>
 
@@ -394,7 +441,7 @@ footer .disc{color:#93AEB3;font-size:13px;max-width:72ch}
     <details><summary>Por quanto tempo tenho acesso?</summary><p>Por 1 ano a partir da compra, tanto no kit quanto no treinamento. Os arquivos podem ser baixados e ficam com você. Durante esse ano, quem tem o kit pode passar para o treinamento pagando só a diferença (R$ 62,00), e quem tem o treinamento tem o valor pago descontado na Sessão de Direcionamento.</p></details>
     <details><summary>O que é a Sessão de Direcionamento?</summary><p>Um encontro individual on-line de 60 minutos com Matheus Orlando sobre oferta, posicionamento e próximos passos, com um resumo de uma página com três prioridades. Para agendar, é preciso ter escolhido uma ideia e preenchido a Oferta (Ferramenta 5) e a Calculadora; para quem tem o treinamento, também ter feito a aula inicial, a aula da ideia escolhida e as aulas de aplicação. Avulsa, custa R$ 390,00; para quem comprou o treinamento, R$ 296,00. Não inclui execução nem orientação técnica, jurídica ou contábil, e não garante renda, clientes ou vendas.</p></details>
     <details><summary>Como funcionam suporte, acesso e reembolso?</summary><p>Dúvidas sobre acesso aos arquivos são atendidas pelo e-mail <a href="mailto:contato@orlandomarketingbranding.com.br">contato@orlandomarketingbranding.com.br</a>. Em compras pela internet, você pode desistir em até 7 dias após a compra e pedir o reembolso, conforme o direito de arrependimento do Código de Defesa do Consumidor (art. 49).</p></details>
-    <p style="margin-top:28px"><a class="btn" href="https://pay.kiwify.com.br/jd6mEem" data-lp="checkout-kiwify" data-loc="faq" rel="noopener">Quero acessar o material</a></p>
+    <p style="margin-top:28px"><a class="btn" href="https://pay.kiwify.com.br/jd6mEem" data-lp="checkout-kiwify" data-loc="faq" rel="noopener">Quero o kit</a> <a class="btn btn--faq2" href="#oferta" style="margin-left:8px;background:transparent;border:2px solid var(--pet);color:var(--pet)">Comparar os caminhos</a></p>
   </div>
 </section>
 
